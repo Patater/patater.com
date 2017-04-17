@@ -1,20 +1,19 @@
-.PHONY: build run update export www-site
+.PHONY: build export clean
+
+SUBDIRS := $(shell ls)
 
 all: build
 
-# Generate the static site
-www-site:
-	$(MAKE) -C www/patater.github.io build
-
 # Build all the images
-build: www-site
-	docker build -t com.patater.www www
-	docker build -t com.patater.sftp sftp
+build:
+	@for i in $(SUBDIRS); do if test -e $$i/Makefile ; then $(MAKE) -C $$i build || { exit 1;} fi; done;
 
-# Run all the images
-run:
+export: build
+	@for i in $(SUBDIRS); do if test -e $$i/Makefile ; then $(MAKE) -C $$i export || { exit 1;} fi; done;
+	@rm -rf images
+	@mkdir -p images
+	@find . -name "*.docker.tar.xz" -exec cp -fv {} images \;
 
-update: build run
-
-export:
-	docker save ${DOCKER_IMAGE} | xz -9 > ${DOCKER_IMAGE}.tar.xz
+clean:
+	@rm -rf images
+	@for i in $(SUBDIRS); do if test -e $$i/Makefile ; then $(MAKE) -C $$i clean || { exit 1;} fi; done;
