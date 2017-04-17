@@ -4,7 +4,7 @@ all: build
 
 # Generate the static site
 www-site:
-	$(MAKE) -C patater.github.io build
+	$(MAKE) -C www/patater.github.io build
 
 # Build all the images
 build: www-site
