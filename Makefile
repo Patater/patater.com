@@ -8,6 +8,7 @@ www-site:
 
 # Build all the images
 build: www-site
+	docker build -t com.patater.www www
 	docker build -t com.patater.sftp sftp
 
 # Run all the images
