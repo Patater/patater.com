@@ -1,0 +1,3 @@
+[submodule "patater.github.io"]
+	path = www/patater.github.io
+	url = https://github.com/Patater/patater.github.io
