@@ -1,0 +1,10 @@
+[Unit]
+Description=Let's Encrypt renewal
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/certbot renew
+ExecStartPost=/bin/systemctl reload nginx.service
+
+# https://wiki.archlinux.org/index.php/Let%E2%80%99s_Encrypt

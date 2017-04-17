@@ -1,0 +1,12 @@
+[Unit]
+Description=Daily renewal of Let's Encrypt's certificates
+
+[Timer]
+OnCalendar=daily
+RandomizedDelaySec=1day
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+
+# https://wiki.archlinux.org/index.php/Let%E2%80%99s_Encrypt
