@@ -36,5 +36,7 @@ Match group sftponly\n\
     ForceCommand internal-sftp -l VERBOSE\n\
 ' >> /etc/ssh/sshd_config
 
+VOLUME ["/keys"]
+
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]

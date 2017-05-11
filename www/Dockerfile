@@ -13,7 +13,7 @@ RUN openssl dhparam -out /etc/ssl/private/dhparams.pem 2048 \
  && chmod 600 /etc/ssl/private/dhparams.pem
 
 RUN rm /etc/nginx/sites-enabled/default
-COPY patater.conf /etc/nginx/sites-enabled/
+COPY patater.conf /tmp/
 COPY patater-redirects.conf /tmp/
 RUN sed '/# Patater Redirects/r /tmp/patater-redirects.conf' /tmp/patater.conf > /etc/nginx/sites-enabled/patater.conf
 
