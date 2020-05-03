@@ -1,3 +1,4 @@
+Port 2200
 ChallengeResponseAuthentication no
 PermitRootLogin without-password
 KexAlgorithms curve25519-sha256@libssh.org
