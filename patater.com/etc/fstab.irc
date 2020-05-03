@@ -1,0 +1,3 @@
+
+# Device		Mountpoint	FStype	Options		Dump	Pass#
+/jail/www/usr/local/etc/letsencrypt /jail/irc/usr/local/etc/letsencrypt nullfs ro 0 0
