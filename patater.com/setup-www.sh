@@ -20,6 +20,7 @@ service jail start www
 pkg -j www install nginx
 pkg -j www install py37-certbot
 sysrc -j www nginx_enable=yes
+sysrc -j www pf_enable=yes
 jexec -l www chown -R www:www /usr/local/www/patater.com
 openssl dhparam -out /jail/www/usr/local/etc/nginx/dhparams.pem 2048
 jexec -l www chmod 600 /usr/local/etc/nginx/dhparams.pem
