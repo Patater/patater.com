@@ -16,3 +16,7 @@ sysrc ifconfig_vtnet0_ipv6="inet6 2a03:b0c0:1:e0::4e5:f001-f/64"
 
 sysrc jail_enable=yes
 sysrc jail_reverse_stop=yes
+
+# TODO syslogd tunneled over ssh to log host? Use home PC for log host? use stunnel
+# TODO configure newsyslog for all jails to make logs with 600 permissions, and
+# use append only security flags on host and jails
