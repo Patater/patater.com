@@ -1,0 +1,8 @@
+PKG nginx py37-certbot
+OVERLAY etc
+OVERLAY usr
+SYSRC nginx_enable=YES
+SERVICE nginx restart
+RDR tcp 80 80
+CMD openssl dhparam -out /usr/local/etc/nginx/dhparams.pem 2048
+CMD certbot certonly --webroot -w /usr/local/www/patater.com/htdocs -d patater.net -d www.patater.net -m certbot@patater.net --agree-tos
