@@ -10,7 +10,7 @@ CMD openssl dhparam -out /usr/local/etc/nginx/dhparams.pem 2048
 # We need to create an certificate so that nginx will start up without
 # complaining about missing a pem. We can do this by adding a dummy self-signed
 # private key pem, or using the certbot standalone authenticator.
-CMD certbot certonly --standalone -d patater.net -d www.patater.net -m certbot@patater.net --agree-tos --no-eff-email
+CMD certbot certonly --standalone -d patater.net -d www.patater.net -d sftp.patater.net -m certbot@patater.net --agree-tos --no-eff-email
 
 SERVICE nginx restart
 
