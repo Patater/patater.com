@@ -1,0 +1,7 @@
+OVERLAY etc
+FSTAB /sftp/data data nullfs rw 0 0
+FSTAB /sftp/keys keys nullfs ro 0 0
+SYSRC sshd_enable=yes
+SERVICE sshd restart
+RDR tcp 22 22
+CMD adduser -f users.conf
