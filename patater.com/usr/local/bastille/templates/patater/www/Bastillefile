@@ -12,11 +12,13 @@ RDR tcp 443 443
 # We need to create an certificate so that nginx will start up without
 # complaining about missing a pem. We can do this by adding a dummy self-signed
 # private key pem, or using the certbot standalone authenticator.
-CMD certbot certonly --standalone -d patater.net -d www.patater.net -d sftp.patater.net -m certbot@patater.net --agree-tos --no-eff-email
+CMD certbot certonly --standalone -d www.patater.net -d patater.net -m certbot@patater.net --agree-tos --no-eff-email
+CMD certbot certonly --standalone -d irc.patater.net -m certbot@patater.net --agree-tos --no-eff-email
 
 SERVICE nginx restart
 
 # Then we need to change the authenticator back to webroot, so we don't need to
 # turn off the web server every time we want to renew the certificate. We can
 # do this by forcing a renewal with the certbot webroot authenticator.
-CMD certbot certonly --cert-name patater.net --force-renewal -a webroot -w /usr/local/www/all/htdocs
+CMD certbot certonly --cert-name www.patater.net --force-renewal -a webroot -w /usr/local/www/all/htdocs
+CMD certbot certonly --cert-name irc.patater.net --force-renewal -a webroot -w /usr/local/www/all/htdocs
