@@ -1,7 +1,11 @@
 OVERLAY etc
+CMD mkdir /data
+CMD mkdir /keys
 FSTAB /sftp/data data nullfs rw 0 0
 FSTAB /sftp/keys keys nullfs ro 0 0
 SYSRC sshd_enable=yes
-SERVICE sshd restart
-#RDR tcp 22 22
-CMD adduser -f users.conf
+CP /root/users.conf root/
+CMD adduser -f /root/users.conf
+RDR tcp 22 22
+CMD ssh-keygen -A
+SERVICE sshd start
