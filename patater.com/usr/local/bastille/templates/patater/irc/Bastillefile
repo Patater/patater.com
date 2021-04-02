@@ -1,0 +1,12 @@
+OVERLAY usr
+FSTAB /www/letsencrypt usr/local/etc/letsencrypt nullfs ro 0 0
+CP /root/users.conf root/
+CMD adduser -f /root/users.conf
+CMD chmod 700 /usr/local/etc/znc/configs
+CMD chmod 600 /usr/local/etc/znc/configs/znc.conf
+CMD chown -R znc:znc /usr/local/etc/znc
+PKG znc znc-push
+CMD openssl dhparam -out /usr/local/etc/ssl/dhparams.pem 2048
+RDR tcp 45678 45678
+SYSRC znc_enable=YES
+SERVICE znc start
