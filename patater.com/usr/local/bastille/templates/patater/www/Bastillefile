@@ -15,4 +15,4 @@ SERVICE nginx restart
 # Then we need to change the authenticator back to webroot, so we don't need to
 # turn off the web server every time we want to renew the certificate. We can
 # do this by forcing a renewal with the certbot webroot authenticator.
-CMD certbot certonly --cert-name patater.net --force-renewal -a webroot -w /usr/local/www/patater.com/htdocs
+CMD certbot certonly --cert-name patater.net --force-renewal -a webroot -w /usr/local/www/all/htdocs
