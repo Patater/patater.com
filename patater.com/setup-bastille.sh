@@ -10,6 +10,6 @@ bastille create www 12.2-RELEASE 10.0.0.3
 bastille create sftp 12.2-RELEASE 10.0.0.4
 bastille create irc 12.2-RELEASE 10.0.0.5
 
-bastille template sftp patater/sftp
 bastille template www patater/www
+bastille template sftp patater/sftp
 bastille template irc patater/irc
