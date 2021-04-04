@@ -3,6 +3,7 @@ CMD mkdir /data
 CMD mkdir /keys
 FSTAB /sftp/data data nullfs rw 0 0
 FSTAB /sftp/keys keys nullfs ro 0 0
+#SYSRC pf_enable=yes
 SYSRC sshd_enable=yes
 SYSRC blacklistd_enable=YES
 CP /root/users.conf root/
