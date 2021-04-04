@@ -1,8 +1,8 @@
 OVERLAY usr
-CMD mkdir -p /usr/local/etc/letsencrypt/live/irc.patater.com
-CMD mkdir -p /usr/local/etc/letsencrypt/archive/irc.patater.com
-FSTAB /www/letsencrypt/live/irc.patater.com usr/local/etc/letsencrypt/live/irc.patater.com nullfs ro 0 0
-FSTAB /www/letsencrypt/archive/irc.patater.com usr/local/etc/letsencrypt/archive/irc.patater.com nullfs ro 0 0
+CMD mkdir -p /usr/local/etc/letsencrypt/live/irc.patater.net
+CMD mkdir -p /usr/local/etc/letsencrypt/archive/irc.patater.net
+FSTAB /www/letsencrypt/live/irc.patater.net usr/local/etc/letsencrypt/live/irc.patater.net nullfs ro 0 0
+FSTAB /www/letsencrypt/archive/irc.patater.net usr/local/etc/letsencrypt/archive/irc.patater.net nullfs ro 0 0
 CP /root/users.conf root/
 CMD adduser -f /root/users.conf
 CMD chmod 700 /usr/local/etc/znc/configs
