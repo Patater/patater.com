@@ -5,6 +5,8 @@ CMD mkdir /usr/local/www/patater.com
 FSTAB /www/patater.com usr/local/www/patater.com nullfs ro 0 0
 FSTAB /www/letsencrypt usr/local/etc/letsencrypt nullfs rw 0 0
 SYSRC nginx_enable=YES
+SYSRC blacklistd_enable=YES
+SERVICE blacklistd start
 CMD openssl dhparam -out /usr/local/etc/nginx/dhparams.pem 2048
 RDR tcp 80 80
 RDR tcp 443 443

@@ -11,5 +11,7 @@ CMD chown -R znc:znc /usr/local/etc/znc
 PKG znc znc-push
 CMD openssl dhparam -out /usr/local/etc/ssl/dhparams.pem 2048
 RDR tcp 45678 45678
+SYSRC blacklistd_enable=YES
 SYSRC znc_enable=YES
+SERVICE blacklistd start
 SERVICE znc start

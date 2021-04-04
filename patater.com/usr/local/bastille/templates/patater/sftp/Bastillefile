@@ -4,8 +4,10 @@ CMD mkdir /keys
 FSTAB /sftp/data data nullfs rw 0 0
 FSTAB /sftp/keys keys nullfs ro 0 0
 SYSRC sshd_enable=yes
+SYSRC blacklistd_enable=YES
 CP /root/users.conf root/
 CMD adduser -f /root/users.conf
 RDR tcp 22 22
 CMD ssh-keygen -A
+SERVICE blacklistd start
 SERVICE sshd start
